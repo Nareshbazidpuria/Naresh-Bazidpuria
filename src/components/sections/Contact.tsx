@@ -26,24 +26,23 @@ export function Contact() {
     message: "",
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+    const subject = encodeURIComponent(
+      `Portfolio inquiry: ${formData.inquiryType}`
+    );
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nInquiry type: ${formData.inquiryType}\n\n${formData.message}`
+    );
 
-      if (!response.ok) throw new Error("Failed to send");
+    window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
 
+    setTimeout(() => {
       setStatus("success");
       setFormData({ name: "", email: "", inquiryType: "", message: "" });
-    } catch {
-      setStatus("error");
-    }
+    }, 400);
   };
 
   const socialLinks = [
@@ -180,7 +179,7 @@ export function Contact() {
                 {status === "loading" && (
                   <Loader2 size={18} className="animate-spin" />
                 )}
-                {status === "success" ? "Message Sent!" : "Send Secure Message"}
+                {status === "success" ? "Opening Email…" : "Send Message"}
               </Button>
 
               <p className="text-xs text-muted-foreground">
@@ -197,7 +196,7 @@ export function Contact() {
                     className="flex items-center gap-2 text-accent text-sm"
                   >
                     <CheckCircle size={18} />
-                    Thanks! I&apos;ll get back to you within 24–48 hours.
+                    Thanks! Your email app should open — send the message to reach me.
                   </motion.div>
                 )}
                 {status === "error" && (

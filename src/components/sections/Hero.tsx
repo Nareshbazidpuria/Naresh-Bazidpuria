@@ -5,8 +5,9 @@ import { ChevronDown, Download, Mail } from "lucide-react";
 import { MeshBackground } from "@/components/effects/MeshBackground";
 import { AnimatedCounter } from "@/components/effects/AnimatedCounter";
 import { Button } from "@/components/ui/button";
-import { heroHeadline, siteConfig, stats } from "@/lib/data";
-import { TypingAnimation } from "../effects/TypingAnimation"
+import { siteConfig, stats } from "@/lib/data";
+import { withBasePath } from "@/lib/basePath";
+import { TypingAnimation } from "../effects/TypingAnimation";
 
 const headline = "Hi, I'm Naresh Bazidpuria";
 const words = headline.split(" ");
@@ -110,7 +111,7 @@ export function Hero() {
             Get In Touch
           </Button>
           <Button variant="outline" size="lg" asChild data-cursor-hover>
-            <a href="/resume.pdf" download>
+            <a href={withBasePath("/resume.pdf")} download>
               <Download size={18} />
               Download CV
             </a>
