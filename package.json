@@ -1,7 +1,7 @@
 {
   "name": "naresh-portfolio",
   "version": "0.1.0",
-  "homepage": "https://nareshbazidpuria.github.io/Nareshbazidpuria/",
+  "homepage": "https://nareshbazidpuria.github.io/Naresh-Bazidpuria",
   "private": true,
   "scripts": {
     "dev": "next dev",
