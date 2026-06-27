@@ -4,9 +4,9 @@ import { siteConfig } from "@/lib/data";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, message } = body;
+    const { name, email, message, inquiryType } = body;
 
-    if (!name?.trim() || !email?.trim() || !message?.trim()) {
+    if (!name?.trim() || !email?.trim() || !message?.trim() || !inquiryType?.trim()) {
       return NextResponse.json(
         { error: "All fields are required" },
         { status: 400 }
@@ -25,6 +25,7 @@ export async function POST(request: Request) {
     console.log("Contact form submission:", {
       name,
       email,
+      inquiryType,
       message,
       to: siteConfig.email,
       timestamp: new Date().toISOString(),

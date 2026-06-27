@@ -1,8 +1,8 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components/effects/ScrollReveal";
-import { AnimatedCounter } from "@/components/effects/AnimatedCounter";
-import { beliefs, stats } from "@/lib/data";
+import { beliefs, technicalArsenal } from "@/lib/data";
 
 export function About() {
   return (
@@ -10,44 +10,57 @@ export function About() {
       <div className="max-w-6xl mx-auto px-6">
         <ScrollReveal>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-heading">
-            About <span className="text-accent">Me</span>
+            Engineering <span className="text-accent">Mindset</span>
           </h2>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <p className="mt-6 text-lg text-muted max-w-2xl leading-relaxed">
-            I&apos;m a Full Stack Engineer and Tech Lead based in Mohali /
-            Chandigarh, India. I specialize in the MERN stack with TypeScript,
-            React Native, and Python — building production-grade web and mobile
-            applications that scale. As a clean code perfectionist, I lead teams
-            and drive architecture decisions that last.
+          <p className="mt-6 text-lg text-muted max-w-3xl leading-relaxed">
+            I don&apos;t just write code; I design systems. With 3+ years of
+            hands-on engineering experience, I lead full stack teams building
+            production applications that serve real users at scale.
+          </p>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.15}>
+          <p className="mt-4 text-muted max-w-3xl leading-relaxed">
+            My core strength lies in the MERN ecosystem and React Native —
+            obsessing over clean architecture, type-safe codebases, and
+            performance that keeps users engaged. As a Tech Lead, I drive
+            architecture decisions that teams can maintain for years.
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={0.2}>
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
-            {stats.map((stat) => (
-              <AnimatedCounter
-                key={stat.label}
-                value={stat.value}
-                suffix={stat.suffix}
-                label={stat.label}
-              />
-            ))}
+          <div className="mt-12 p-8 rounded-2xl bg-navy-surface border border-white/5">
+            <h3 className="font-display text-xl font-semibold text-heading mb-6">
+              Technical Arsenal
+            </h3>
+            <div className="flex flex-wrap gap-2.5">
+              {technicalArsenal.map((skill, i) => (
+                <motion.span
+                  key={skill}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.03 }}
+                  className="px-3.5 py-1.5 text-sm font-mono rounded-full bg-accent/5 text-muted border border-white/5 hover:border-accent/30 hover:text-accent transition-colors"
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </div>
           </div>
         </ScrollReveal>
 
         <ScrollReveal delay={0.3}>
-          <div className="mt-16 p-8 rounded-2xl bg-navy-surface border border-white/5 glow-border">
+          <div className="mt-8 p-8 rounded-2xl bg-navy-surface border border-white/5 glow-border">
             <h3 className="font-display text-xl font-semibold text-heading mb-4">
               What I believe in
             </h3>
             <ul className="space-y-3">
               {beliefs.map((belief) => (
-                <li
-                  key={belief}
-                  className="flex items-start gap-3 text-muted"
-                >
+                <li key={belief} className="flex items-start gap-3 text-muted">
                   <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
                   {belief}
                 </li>

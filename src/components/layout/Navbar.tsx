@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { navLinks, siteConfig } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
@@ -69,32 +70,41 @@ export function Navbar() {
             NB<span className="text-accent">.</span>
           </a>
 
-          <ul className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => {
-              const id = link.href.slice(1);
-              const isActive = activeSection === id;
-              return (
-                <li key={link.href}>
-                  <button
-                    onClick={() => handleNavClick(link.href)}
-                    className={cn(
-                      "relative text-sm font-medium transition-colors cursor-hover",
-                      isActive ? "text-accent" : "text-muted hover:text-heading"
-                    )}
-                    data-cursor-hover
-                  >
-                    {link.label}
-                    {isActive && (
-                      <motion.span
-                        layoutId="nav-underline"
-                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full"
-                      />
-                    )}
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
+          <div className="hidden md:flex items-center gap-8">
+            <ul className="flex items-center gap-8">
+              {navLinks.map((link) => {
+                const id = link.href.slice(1);
+                const isActive = activeSection === id;
+                return (
+                  <li key={link.href}>
+                    <button
+                      onClick={() => handleNavClick(link.href)}
+                      className={cn(
+                        "relative text-sm font-medium transition-colors cursor-hover",
+                        isActive ? "text-accent" : "text-muted hover:text-heading"
+                      )}
+                      data-cursor-hover
+                    >
+                      {link.label}
+                      {isActive && (
+                        <motion.span
+                          layoutId="nav-underline"
+                          className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full"
+                        />
+                      )}
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+            <Button
+              size="sm"
+              onClick={() => handleNavClick("#contact")}
+              data-cursor-hover
+            >
+              Hire Me
+            </Button>
+          </div>
 
           <button
             onClick={() => setMobileOpen(true)}
@@ -150,6 +160,14 @@ export function Navbar() {
                   </motion.li>
                 ))}
               </ul>
+              <div className="px-6 mt-6">
+                <Button
+                  className="w-full"
+                  onClick={() => handleNavClick("#contact")}
+                >
+                  Hire Me
+                </Button>
+              </div>
               <div className="absolute bottom-8 left-6 right-6">
                 <p className="text-sm text-muted">{siteConfig.name}</p>
                 <p className="text-xs text-muted-foreground mt-1">
