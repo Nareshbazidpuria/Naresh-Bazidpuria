@@ -27,7 +27,8 @@ export function Projects() {
             Featured <span className="text-accent">Implementations</span>
           </h2>
           <p className="mt-4 text-muted max-w-xl">
-            Production apps — architecture, stack, and shipped outcomes.
+            Real web applications I&apos;ve built — from React portfolios to
+            production MERN stacks.
           </p>
         </ScrollReveal>
 

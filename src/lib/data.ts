@@ -11,7 +11,7 @@ export const siteConfig = {
     "Full Stack Engineer",
     "Tech Lead",
     "MERN Specialist",
-    "React Native Developer",
+    "JavaScript Developer",
   ],
   tagline:
     "I specialize in bridging frontend polish with backend reliability — building production-grade MERN applications, leading engineering teams, and shipping features that scale.",
@@ -71,15 +71,13 @@ export const beliefs = [
 ];
 
 export const technicalArsenal = [
+  "JavaScript",
   "React",
   "Next.js",
-  "TypeScript",
   "Node.js",
   "Express",
   "MongoDB",
   "PostgreSQL",
-  "React Native",
-  "Expo",
   "Python",
   "Redis",
   "Docker",
@@ -87,25 +85,21 @@ export const technicalArsenal = [
   "Git",
   "REST APIs",
   "Tailwind CSS",
+  "React Native",
+  "Expo",
 ];
 
 export const expertiseAreas = [
   {
     title: "Full Stack MERN",
     description:
-      "Architecting scalable web applications from database to UI using React, Node.js, Express, and MongoDB with modular, maintainable code.",
+      "Architecting scalable web applications from database to UI using JavaScript, React, Node.js, Express, and MongoDB with modular, maintainable code.",
     icon: "layers",
   },
   {
-    title: "React Native Mobile",
+    title: "JavaScript Ecosystem",
     description:
-      "Building cross-platform iOS and Android apps with native-feeling UX, offline persistence, and reliable state management.",
-    icon: "smartphone",
-  },
-  {
-    title: "TypeScript Architecture",
-    description:
-      "Designing type-safe codebases with strict interfaces, shared types, and patterns that scale cleanly across teams.",
+      "Building production apps with modern ES6+, async patterns, and clean module design — the language I reach for first on every project.",
     icon: "code",
   },
   {
@@ -138,15 +132,21 @@ export const expertiseAreas = [
       "Containerized deployments, CI/CD pipelines, and cloud infrastructure on AWS for reliable production releases.",
     icon: "cloud",
   },
+  {
+    title: "React Native (Mobile)",
+    description:
+      "Cross-platform mobile experience when the product calls for it — secondary to my core web and MERN focus.",
+    icon: "smartphone",
+  },
 ];
 
 export const skillGroups = [
   {
     title: "Frontend",
     skills: [
+      { name: "JavaScript", icon: "javascript" },
       { name: "React", icon: "react" },
       { name: "Next.js", icon: "nextjs" },
-      { name: "TypeScript", icon: "typescript" },
       { name: "Tailwind CSS", icon: "tailwind" },
     ],
   },
@@ -187,35 +187,9 @@ export const skillGroups = [
 
 export const projects = [
   {
-    name: "Expense Manager Mobile",
-    description:
-      "Cross-platform expense tracking app built with React Native. Features category-based budgeting, transaction history, and offline-first data persistence for everyday financial management.",
-    tech: ["React Native", "TypeScript", "AsyncStorage", "Expo"],
-    github: "https://github.com/Nareshbazidpuria/ExpenseManagerMobile",
-    live: null,
-    gradient: "from-cyan-500/20 to-blue-600/10",
-    caseStudy: {
-      role: "Full Stack / Mobile Developer",
-      duration: "Personal Project",
-      overview:
-        "A production-ready mobile app for personal finance tracking with offline-first architecture and intuitive category management.",
-      challenges: [
-        "Designing reliable offline sync with AsyncStorage",
-        "Building responsive UI that feels native on both platforms",
-        "Managing complex transaction state across categories",
-      ],
-      outcomes: [
-        "Fully functional cross-platform app on iOS and Android",
-        "Offline-first data persistence with zero data loss",
-        "Clean component architecture ready for team scaling",
-      ],
-      stack: ["React Native", "TypeScript", "Expo", "AsyncStorage"],
-    },
-  },
-  {
     name: "Portfolio Website",
     description:
-      "Personal portfolio showcasing projects and skills, built with React. Clean component architecture, responsive design, and smooth interactions that reflect engineering craft.",
+      "Personal portfolio showcasing projects and skills, built with React and JavaScript. Clean component architecture, responsive design, and smooth interactions that reflect engineering craft.",
     tech: ["React", "JavaScript", "CSS", "GitHub Pages"],
     github: "https://github.com/Nareshbazidpuria/NB-React",
     live: "https://nareshbazidpuria.github.io/NB-React/",
@@ -236,6 +210,32 @@ export const projects = [
         "Foundation evolved into this Next.js upgrade",
       ],
       stack: ["React", "JavaScript", "CSS", "GitHub Pages"],
+    },
+  },
+  {
+    name: "Expense Manager Mobile",
+    description:
+      "Side project — cross-platform expense tracker built with React Native and JavaScript. Category budgeting, transaction history, and offline-first persistence.",
+    tech: ["JavaScript", "React Native", "AsyncStorage", "Expo"],
+    github: "https://github.com/Nareshbazidpuria/ExpenseManagerMobile",
+    live: null,
+    gradient: "from-cyan-500/20 to-blue-600/10",
+    caseStudy: {
+      role: "Mobile Developer (Side Project)",
+      duration: "Personal Project",
+      overview:
+        "A personal finance tracking app exploring mobile development — built alongside my primary web and MERN work.",
+      challenges: [
+        "Designing reliable offline sync with AsyncStorage",
+        "Building responsive UI that feels native on both platforms",
+        "Managing complex transaction state across categories",
+      ],
+      outcomes: [
+        "Fully functional cross-platform app on iOS and Android",
+        "Offline-first data persistence with zero data loss",
+        "Practical mobile experience complementing web expertise",
+      ],
+      stack: ["JavaScript", "React Native", "Expo", "AsyncStorage"],
     },
   },
 ];

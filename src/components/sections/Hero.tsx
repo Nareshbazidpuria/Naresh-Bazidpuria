@@ -38,41 +38,41 @@ export function Hero() {
           </motion.div>
         )}
 
-<div className="max-w-3xl">
-        <motion.h1
-          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-heading leading-tight"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: {},
-            visible: {
-              transition: { staggerChildren: 0.08 },
-            },
-          }}
-          >
-          {words.map((word, i) => (
-            <motion.span
-            key={i}
-            className="inline-block mr-[0.25em]"
+        <div className="max-w-3xl">
+          <motion.h1
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-heading leading-tight"
+            initial="hidden"
+            animate="visible"
             variants={{
-              hidden: { opacity: 0, y: 30 },
+              hidden: {},
               visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+                transition: { staggerChildren: 0.08 },
               },
             }}
-            >
-              {word === "Naresh" || word === "Bazidpuria" ? (
-                <span className="text-accent">{word}</span>
-              ) : (
-                word
-              )}
-            </motion.span>
-          ))}
-        </motion.h1>
+          >
+            {words.map((word, i) => (
+              <motion.span
+                key={i}
+                className="inline-block mr-[0.25em]"
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+                  },
+                }}
+              >
+                {word === "Naresh" || word === "Bazidpuria" ? (
+                  <span className="text-accent">{word}</span>
+                ) : (
+                  word
+                )}
+              </motion.span>
+            ))}
+          </motion.h1>
+        </div>
 
-          </div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ export function Hero() {
           transition={{ delay: 0.5, duration: 0.6 }}
           className="mt-8 text-lg md:text-xl text-muted max-w-2xl leading-relaxed"
         >
-         {siteConfig.tagline}
+          {siteConfig.tagline}
         </motion.p>
 
         <motion.div

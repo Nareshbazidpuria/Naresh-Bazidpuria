@@ -21,6 +21,7 @@ const iconMap: Record<string, ElementType> = {
   react: Layers,
   nextjs: Globe,
   typescript: Code2,
+  javascript: Code2,
   tailwind: Box,
   nodejs: Server,
   express: Terminal,

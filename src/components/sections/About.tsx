@@ -24,10 +24,11 @@ export function About() {
 
         <ScrollReveal delay={0.15}>
           <p className="mt-4 text-muted max-w-3xl leading-relaxed">
-            My core strength lies in the MERN ecosystem and React Native —
-            obsessing over clean architecture, type-safe codebases, and
-            performance that keeps users engaged. As a Tech Lead, I drive
-            architecture decisions that teams can maintain for years.
+            My core strength lies in the MERN ecosystem and JavaScript — from
+            React frontends to Node.js APIs. I obsess over clean architecture,
+            readable code, and performance that keeps users engaged. Mobile with
+            React Native is part of my toolkit, but web and full stack delivery
+            is where I lead.
           </p>
         </ScrollReveal>
 
