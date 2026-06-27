@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-navy-surface;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-navy text-muted antialiased;
+    cursor: none;
+  }
+
+  @media (max-width: 768px) {
+    body {
+      cursor: auto;
+    }
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-heading;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass {
+    @apply bg-navy/70 backdrop-blur-xl border border-white/5;
+  }
+
+  .glow-border {
+    @apply border border-accent/20 transition-all duration-300;
+  }
+
+  .glow-border:hover {
+    @apply border-accent/50 shadow-glow;
+  }
+}
