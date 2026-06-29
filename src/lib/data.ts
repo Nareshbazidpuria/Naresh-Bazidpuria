@@ -3,7 +3,7 @@ export const siteConfig = {
   title: "Naresh Bazidpuria — Full Stack Engineer & Tech Lead",
   description:
     "Full Stack Engineer and Tech Lead based in Mohali / Chandigarh, India. Building fast, scalable MERN applications and leading teams that ship with confidence.",
-  location: "Mohali / Chandigarh, India",
+  location: "Chandigarh, India",
   email: "nareshbazidpuria@gmail.com",
   linkedin: "https://www.linkedin.com/in/naresh-bazidpuria-a8a45a1a2/",
   github: "https://github.com/Nareshbazidpuria",
