@@ -111,7 +111,7 @@ export function Hero() {
             Get In Touch
           </Button>
           <Button variant="outline" size="lg" asChild data-cursor-hover>
-            <a href={withBasePath("/resume.pdf")} download>
+            <a href={withBasePath("/Naresh_Kumar_Resume.pdf")} download>
               <Download size={18} />
               Download CV
             </a>

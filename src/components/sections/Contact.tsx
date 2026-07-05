@@ -26,23 +26,50 @@ export function Contact() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
 
-    const subject = encodeURIComponent(
-      `Portfolio inquiry: ${formData.inquiryType}`
-    );
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nInquiry type: ${formData.inquiryType}\n\n${formData.message}`
-    );
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
-    window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
+    if (!accessKey) {
+      setStatus("error");
+      return;
+    }
 
-    setTimeout(() => {
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          subject: `Portfolio inquiry: ${formData.inquiryType}`,
+          message: [
+            `Inquiry type: ${formData.inquiryType}`,
+            "",
+            formData.message,
+          ].join("\n"),
+          from_name: siteConfig.name,
+        }),
+      });
+
+      const result = (await response.json()) as { success?: boolean };
+
+      if (!response.ok || !result.success) {
+        setStatus("error");
+        return;
+      }
+
       setStatus("success");
       setFormData({ name: "", email: "", inquiryType: "", message: "" });
-    }, 400);
+    } catch  {
+      setStatus("error");
+    }
   };
 
   const socialLinks = [
@@ -179,7 +206,7 @@ export function Contact() {
                 {status === "loading" && (
                   <Loader2 size={18} className="animate-spin" />
                 )}
-                {status === "success" ? "Opening Email…" : "Send Message"}
+                {status === "success" ? "Message Sent!" : "Send Message"}
               </Button>
 
               <p className="text-xs text-muted-foreground">
@@ -196,7 +223,7 @@ export function Contact() {
                     className="flex items-center gap-2 text-accent text-sm"
                   >
                     <CheckCircle size={18} />
-                    Thanks! Your email app should open — send the message to reach me.
+                    Thanks! Your message was sent — I&apos;ll get back to you soon.
                   </motion.div>
                 )}
                 {status === "error" && (
