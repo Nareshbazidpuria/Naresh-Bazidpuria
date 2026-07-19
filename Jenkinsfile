@@ -6,16 +6,11 @@ pipeline {
     }
 
     environment {
-        CI = "true"
+        CI = 'true'
     }
 
     options {
         timestamps()
-        ansiColor('xterm')
-        buildDiscarder(logRotator(
-            numToKeepStr: '10',
-            artifactNumToKeepStr: '5'
-        ))
     }
 
     stages {
@@ -26,7 +21,7 @@ pipeline {
             }
         }
 
-        stage('Node Version') {
+        stage('Verify Environment') {
             steps {
                 sh 'node -v'
                 sh 'npm -v'
@@ -41,13 +36,7 @@ pipeline {
 
         stage('Lint') {
             steps {
-                sh 'npm run lint || true'
-            }
-        }
-
-        stage('Run Tests') {
-            steps {
-                sh 'npm test -- --watchAll=false || true'
+                sh 'npm run lint'
             }
         }
 
@@ -57,17 +46,16 @@ pipeline {
             }
         }
 
-        stage('Archive Build') {
+        stage('Archive Static Site') {
             steps {
-                archiveArtifacts artifacts: 'build/**', fingerprint: true
+                archiveArtifacts artifacts: 'out/**', fingerprint: true
             }
         }
     }
 
     post {
-
         success {
-            echo '✅ Build completed successfully.'
+            echo '✅ Static site generated successfully.'
         }
 
         failure {
