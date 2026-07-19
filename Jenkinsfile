@@ -46,11 +46,11 @@ pipeline {
             }
         }
 
-        stage('Archive Static Site') {
-            steps {
-                archiveArtifacts artifacts: 'out/**', fingerprint: true
-            }
-        }
+        // stage('Archive Static Site') {
+        //     steps {
+        //         archiveArtifacts artifacts: 'out/**', fingerprint: true
+        //     }
+        // }
     }
 
     post {
